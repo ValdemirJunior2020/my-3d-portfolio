@@ -1,52 +1,94 @@
 // File: src/components/Certificates.jsx
-import React from 'react'
-import { Container, Row, Col, Card, Button } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Container, Row, Col, Card, Button, Modal, Image } from 'react-bootstrap'
+
+const certificates = [
+  {
+    title: 'Full Stack Development',
+    description: 'Bethel School of Technology (2021)',
+    image: '/certificates/certificate1.jpg',
+  },
+  {
+    title: 'ColdFusion Advanced',
+    description: 'Udemy Certificate (2023)',
+    image: '/certificates/coldfusion.jpg',
+  },
+]
+
+const projects = [
+  { name: 'QA Dashboard - Hotel Planner', url: 'https://qa-react-dashboard.netlify.app/' },
+  { name: 'Hope Step – Support API', url: 'https://hope-step.netlify.app/' },
+  { name: 'Travel Planner AI', url: 'https://www.travelplanerai.com' },
+  { name: 'Reviews Website', url: 'https://66ed948260bee90b97626fc5--ubiquitous-hamster-9d745a.netlify.app/' },
+  { name: 'Training Guide', url: 'https://training-guides-pbhhda5z7-valdemirjunior2020s-projects.vercel.app/tableOfcontent.html' },
+]
+
+
 
 function Certificates() {
+  const [showModal, setShowModal] = useState(false)
+  const [activeImage, setActiveImage] = useState(null)
+
+  const handleImageClick = (image) => {
+    setActiveImage(image)
+    setShowModal(true)
+  }
+
+  const handleClose = () => {
+    setShowModal(false)
+    setActiveImage(null)
+  }
+
   return (
     <div className="bg-light text-dark py-5" id="certificates">
       <Container>
         <h2 className="text-center mb-5">Certificates & Projects</h2>
-        
-        {/* Certificates Section */}
-        <Row className="gy-4">
-          <Col md={4}>
-            <Card className="shadow-sm">
-              <Card.Img variant="top" src="/certificates/certificate1.jpg" />
-              <Card.Body>
-                <Card.Title>Full Stack Development</Card.Title>
-                <Card.Text>Bethel School of Technology (2021)</Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
 
-          <Col md={4}>
-            <Card className="shadow-sm">
-              <Card.Img variant="top" src="/certificates/coldfusion.jpg" />
-              <Card.Body>
-                <Card.Title>ColdFusion Advanced</Card.Title>
-                <Card.Text>Udemy Certificate (2023)</Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
+        {/* Certificates */}
+        <Row className="gy-4">
+          {certificates.map((cert, idx) => (
+            <Col md={4} key={idx}>
+              <Card className="shadow-sm h-100">
+                <Card.Img
+                  variant="top"
+                  src={cert.image}
+                  onClick={() => handleImageClick(cert.image)}
+                  style={{ cursor: 'pointer' }}
+                />
+                <Card.Body>
+                  <Card.Title>{cert.title}</Card.Title>
+                  <Card.Text>{cert.description}</Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
         </Row>
 
-        {/* Projects Section */}
+        {/* Project Links */}
         <h3 className="text-center mt-5 mb-3">My Projects</h3>
         <Row className="justify-content-center text-center">
           <Col md={4}>
-            <Button variant="primary" href="https://your-project1.vercel.app" target="_blank" className="mb-3 w-100">
-              Travel Planner AI
-            </Button>
-            <Button variant="secondary" href="https://your-project2.vercel.app" target="_blank" className="mb-3 w-100">
-              QA Dashboard
-            </Button>
-            <Button variant="dark" href="https://your-project3.vercel.app" target="_blank" className="w-100">
-              Stroke Recovery Blog
-            </Button>
+            {projects.map((project, idx) => (
+              <Button
+                key={idx}
+                variant="outline-primary"
+                href={project.url}
+                target="_blank"
+                className="w-100 mb-3"
+              >
+                {project.name}
+              </Button>
+            ))}
           </Col>
         </Row>
       </Container>
+
+      {/* Modal for fullscreen image */}
+      <Modal show={showModal} onHide={handleClose} centered size="lg">
+        <Modal.Body className="text-center bg-dark">
+          <Image src={activeImage} fluid />
+        </Modal.Body>
+      </Modal>
     </div>
   )
 }
