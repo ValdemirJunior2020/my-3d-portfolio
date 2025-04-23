@@ -5,7 +5,7 @@ import { Container, Row, Col, Card, Button, Modal, Image } from 'react-bootstrap
 const certificates = [
   {
     title: 'Full Stack Development',
-    description: 'Bethel School of Technology (2021)',
+    
     image: '/certificates/certificate1.jpg',
   },
   {
