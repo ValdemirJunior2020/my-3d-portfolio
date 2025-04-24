@@ -26,8 +26,8 @@ function ProfilePlane() {
 
 function SpinningImage() {
   return (
-    <div style={{ height: '400px', backgroundColor: '#111' }}>
-      <Canvas>
+    <div style={{ height: '300px', backgroundColor: '#111', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+      <Canvas style={{ width: '300px', height: '300px' }}>
         <ambientLight intensity={0.7} />
         <directionalLight position={[0, 0, 5]} />
         <ProfilePlane />

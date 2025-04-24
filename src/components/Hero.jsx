@@ -6,11 +6,11 @@ import SpinningImage from './SpinningImage'
 
 function Hero() {
   return (
-    <div className="bg-dark text-light text-center" style={{ minHeight: '100vh' }}>
+    <div className="bg-dark text-light text-center d-flex flex-column justify-content-center" style={{ minHeight: '100vh' }}>
       <SpinningImage />
 
-      <Container className="py-5">
-        <Row className="align-items-center justify-content-center">
+      <Container className="flex-grow-1 d-flex align-items-center">
+        <Row className="justify-content-center w-100">
           <Col md={8}>
             <motion.h1
               className="display-3 fw-bold"
