@@ -20,7 +20,7 @@ const projects = [
   { name: 'Hope Step – Support API', url: 'https://hope-step.netlify.app/' },
   { name: 'Travel Planner AI', url: 'https://www.travelplanerai.com' },
   { name: 'Reviews Website', url: 'https://66ed948260bee90b97626fc5--ubiquitous-hamster-9d745a.netlify.app/' },
-  { name: 'Training Guide', url: 'https://training-guides-pbhhda5z7-valdemirjunior2020s-projects.vercel.app/tableOfcontent.html' },
+  
 ]
 
 
