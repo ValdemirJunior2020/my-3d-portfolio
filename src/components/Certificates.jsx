@@ -16,8 +16,8 @@ const certificates = [
 ]
 
 const projects = [
-  { name: 'QA Dashboard - Hotel Planner', url: 'https://qa-react-dashboard.netlify.app/' },
-  { name: 'Hope Step – Support API', url: 'https://hope-step.netlify.app/' },
+  
+  { name: 'Hope Step – Support psychology', url: 'https://hope-step.netlify.app/' },
   { name: 'Travel Planner AI', url: 'https://www.travelplanerai.com' },
   { name: 'Reviews Website', url: 'https://66ed948260bee90b97626fc5--ubiquitous-hamster-9d745a.netlify.app/' },
   
